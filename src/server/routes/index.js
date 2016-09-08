@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const title = 'Wrestler_DB';
 
 router.get('/', function (req, res, next) {
-  res.redirect('/wrestlers');
+  const renderObject = {};
+  renderObject.title = 'Wrestler_DB';
+  res.redirect('/wrestlers', renderObject);
 });
 
 module.exports = router;

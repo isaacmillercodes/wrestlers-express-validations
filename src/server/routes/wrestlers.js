@@ -10,6 +10,7 @@ router.get('/', (req, res, next) => {
   .then((results) => {
     const renderObject = {};
     renderObject.wrestlers = results;
+    renderObject.title = 'Wrestler_DB';
     // send the wrestlers with the res.render
     res.render('wrestlers', renderObject);
   })
@@ -19,7 +20,9 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/new', (req, res, next) => {
-  res.render('new');
+  const renderObject = {};
+  renderObject.title = 'Add a Wrestler';
+  res.render('new', renderObject);
 });
 //
 router.post('/new', validations.verify, (req, res, next) => {
